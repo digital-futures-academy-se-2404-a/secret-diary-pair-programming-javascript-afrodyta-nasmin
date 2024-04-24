@@ -15,4 +15,18 @@ export default class Diary {
 
     console.log(`${entry.getEntry()} was added to the Diary`);
   };
+  findEntry = (entry) => {
+    return (
+      this.#diaryEntry.findIndex((e) => e.getEntry() === entry.getEntry()) !==
+      -1
+    );
+  };
+
+  readEntry = (entry) => {
+    if (this.findEntry(entry)) {
+      this.#diaryEntry[
+        this.#diaryEntry.findIndex((e) => e.getEntry() === entry.getEntry())
+      ].getMessage();
+    }
+  };
 }
